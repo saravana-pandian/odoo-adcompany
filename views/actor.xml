@@ -22,9 +22,6 @@
                                 <div class="oe_kanban_record_details">
                                    <ul>
                                        <li>
-                                           Availablility : <field name="availability"/>
-                                        </li>
-                                        <li>
                                            Actor Name : <field name="name"/>
                                         </li>
                                        <li>
@@ -33,9 +30,13 @@
                                        <li>
                                              field : <field name="note"/>
                                        </li>
+                                         <li>
+                                           Availablility : <field name="availability"/>
+                                        </li>
                                        <li>
                                             Age : <field name="age"/>
                                        </li>
+
                                        <li>
                                             country : <field name="country"/>
                                        </li>
@@ -54,11 +55,11 @@
             <field name="model">ad.flim</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="availability"/>
                     <field name="name"/>
                     <field name="note"/>
                     <field name="country"/>
                     <field name="gender"/>
+                    <field name="availability"/>
                     <field name="age"/>
                 </tree>
             </field>
