@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <record model="ir.ui.view" id="view_actors_kanban">
+            <field name="name">ad.flim.tree</field>
+            <field name="model">ad.flim</field>
+
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="availability"/>
+                    <field name="name"/>
+                    <field name="country"/>
+                    <field name="gender"/>
+                    <field name="note"/>
+                    <field name="age"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_record_details">
+                                   <ul>
+                                       <li>
+                                           Availablility : <field name="availability"/>
+                                        </li>
+                                        <li>
+                                           Actor Name : <field name="name"/>
+                                        </li>
+                                       <li>
+                                            Gender : <field name="gender"/>
+                                       </li>
+                                       <li>
+                                             field : <field name="note"/>
+                                       </li>
+                                       <li>
+                                            Age : <field name="age"/>
+                                       </li>
+                                       <li>
+                                            country : <field name="country"/>
+                                       </li>
+
+                                   </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="actors_tree" model="ir.ui.view">
+            <field name="name">ad.flim.tree</field>
+            <field name="model">ad.flim</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="availability"/>
+                    <field name="name"/>
+                    <field name="note"/>
+                    <field name="country"/>
+                    <field name="gender"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="actors_form" model="ir.ui.view">
+            <field name="name">ad.flim.form</field>
+            <field name="model">ad.flim</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                         <group>
+                             <group>
+                                 <field name="name"/>
+                                 <field name="age"/>
+                                 <field name="country"/>
+                             </group>
+                             <group>
+                                 <field name="gender"/>
+                                 <field name="note"/>
+                                 <field name="availability"/>
+                             </group>
+                         </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record id="actors_action" model="ir.actions.act_window">
+        <field name="name">Actors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ad.flim</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Actors!
+                </p>
+        </field>
+    </record>
+
+    <menuitem id="ad_movie_root"
+            name="ad_movie"
+            sequence="10"/>
+
+    <menuitem id="ad_actors_root"
+            name="actors"
+            parent="ad_movie_root"
+            sequence="10"/>
+    <menuitem id="actors_root"
+            name="actor"
+            parent="ad_actors_root"
+            action="actors_action"/>
+</odoo>
