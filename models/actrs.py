@@ -16,4 +16,4 @@ class Adflim(models.Model):
         ('unavailable', 'Unavailable'),
     ], required=True, default='unavailable')
 
-    note = fields.Text(string='Description')
+    note = fields.Text(string='Field')
